@@ -169,9 +169,9 @@ sections.forEach(s => activeObserver.observe(s));
 const galleries = {
   sala: {
     images: [
-      { src: 'images/hero.png', alt: 'La Sala Principale' },
-      { src: 'images/sala2.png', alt: 'Atmosfera e Dettagli' },
-      { src: 'images/hero.png', alt: 'La Sala (Vista 3)' }
+      { src: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=1200&auto=format&fit=crop', alt: 'La Sala Principale' },
+      { src: 'https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1200&auto=format&fit=crop', alt: 'Atmosfera e Dettagli' },
+      { src: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1200&auto=format&fit=crop', alt: 'La Cantina e Stile' }
     ],
     title: 'La Sala'
   },

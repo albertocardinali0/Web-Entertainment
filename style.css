@@ -579,19 +579,32 @@ button { font-family: var(--ff-sans); cursor: pointer; border: none; background:
 .gallery-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(14,14,14,.8) 0%, transparent 60%);
+  background: linear-gradient(to top, rgba(14,14,14,.9) 0%, rgba(14,14,14,.4) 40%, transparent 100%);
   display: flex;
   align-items: flex-end;
-  padding: 1.2rem;
+  justify-content: space-between;
+  padding: 1.5rem;
   opacity: 0;
-  transition: opacity .35s;
+  transition: opacity .4s ease;
 }
 .gallery-item:hover .gallery-overlay { opacity: 1; }
 .gallery-overlay span {
   font-family: var(--ff-serif);
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   color: var(--white);
+  transform: translateY(10px);
+  transition: transform .4s ease;
 }
+.gallery-overlay svg {
+  color: var(--gold);
+  transform: translateY(10px) scale(0.9);
+  transition: transform .4s ease, color .2s;
+}
+.gallery-item:hover .gallery-overlay span,
+.gallery-item:hover .gallery-overlay svg {
+  transform: translateY(0) scale(1);
+}
+.gallery-overlay svg:hover { color: var(--white); }
 
 /* ─────────────────────────────────────────────────────────────────────────
    REVIEWS
