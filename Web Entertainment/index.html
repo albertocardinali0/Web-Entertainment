@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ristorante La Tavola — Cucina Italiana d'Eccellenza</title>
+  <meta name="description" content="Ristorante La Tavola: cucina italiana autentica nel cuore della città. Prenota il tuo tavolo e vivi un'esperienza gastronomica indimenticabile." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════ NAVBAR ═══════════════════════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#hero">La Tavola</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about">Chi Siamo</a></li>
+        <li><a href="#menu">Menù</a></li>
+        <li><a href="#gallery">Galleria</a></li>
+        <li><a href="#reservation">Prenota</a></li>
+        <li><a href="#contact">Contatti</a></li>
+      </ul>
+      <button class="nav-cta" onclick="scrollToSection('reservation')">Prenota un Tavolo</button>
+      <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════ HERO ════════════════════════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero-overlay"></div>
+    <img class="hero-bg" src="images/hero.png" alt="Sala del ristorante La Tavola" loading="eager" />
+    <div class="hero-content">
+      <p class="hero-eyebrow">Dal 1987 · Milano</p>
+      <h1 class="hero-title">Un'Esperienza<br /><em>Gastronomica</em><br />Indimenticabile</h1>
+      <p class="hero-sub">Ingredienti selezionati, ricette della tradizione e un'accoglienza unica.<br />Ogni piatto racconta una storia.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="scrollToSection('reservation')">Prenota il Tuo Tavolo</button>
+        <button class="btn-ghost" onclick="scrollToSection('menu')">Scopri il Menù</button>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scorri</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ STATS ═══════════════════════════════ -->
+  <section class="stats-bar">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <span class="stat-num" data-target="38">0</span><span class="stat-suffix">+</span>
+        <p>Anni di Tradizione</p>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="120">0</span><span class="stat-suffix"></span>
+        <p>Coperti</p>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="48">0</span><span class="stat-suffix"></span>
+        <p>Piatti in Carta</p>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="4">0</span><span class="stat-suffix">.9★</span>
+        <p>Valutazione Media</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ ABOUT ═══════════════════════════════ -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-img-wrap">
+          <img src="images/chef.png" alt="Lo Chef Marco Bianchi" class="about-img" loading="lazy" />
+          <div class="about-badge">
+            <span class="badge-icon">★</span>
+            <span>Chef Marco Bianchi</span>
+          </div>
+        </div>
+        <div class="about-text">
+          <p class="section-eyebrow">La Nostra Storia</p>
+          <h2 class="section-title">Passione,<br /><em>Tradizione</em> e Sapore</h2>
+          <p class="about-desc">Fondato nel 1987 nel cuore di Milano, <strong>La Tavola</strong> è da oltre trent'anni un punto di riferimento per chi cerca una cucina italiana autentica, fatta con materie prime selezionate e una cura artigianale in ogni piatto.</p>
+          <p class="about-desc">Lo Chef Marco Bianchi guida la cucina con una filosofia semplice: rispettare la stagionalità degli ingredienti e la memoria dei sapori di un tempo, senza rinunciare alla creatività contemporanea.</p>
+          <div class="about-values">
+            <div class="value-pill">🌿 Km Zero</div>
+            <div class="value-pill">🍷 Cantina Selezionata</div>
+            <div class="value-pill">🤝 Famiglie e Business</div>
+          </div>
+          <button class="btn-primary" onclick="scrollToSection('reservation')" style="margin-top:2rem">Prenota Ora</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ MENU ════════════════════════════════ -->
+  <section class="menu-section" id="menu">
+    <div class="container">
+      <p class="section-eyebrow center">La Nostra Cucina</p>
+      <h2 class="section-title center">Il Menù</h2>
+      <div class="menu-tabs" role="tablist">
+        <button class="tab-btn active" role="tab" onclick="switchTab(this,'antipasti')" id="tab-antipasti">Antipasti</button>
+        <button class="tab-btn" role="tab" onclick="switchTab(this,'primi')" id="tab-primi">Primi</button>
+        <button class="tab-btn" role="tab" onclick="switchTab(this,'secondi')" id="tab-secondi">Secondi</button>
+        <button class="tab-btn" role="tab" onclick="switchTab(this,'dolci')" id="tab-dolci">Dolci</button>
+      </div>
+
+      <!-- Antipasti -->
+      <div class="tab-panel active" id="antipasti">
+        <div class="menu-cards">
+          <div class="menu-card">
+            <div class="menu-card-header">
+              <h3>Burrata con Pomodorini</h3>
+              <span class="price">€ 14</span>
+            </div>
+            <p>Burrata pugliese freschissima, pomodorini confit, basilico e olio EVO</p>
+            <span class="menu-tag">Vegetariano</span>
+          </div>
+          <div class="menu-card featured">
+            <div class="menu-card-header">
+              <h3>Carpaccio di Manzo</h3>
+              <span class="price">€ 18</span>
+            </div>
+            <p>Fettine sottilissime di manzo, rucola selvatica, scaglie di Parmigiano e tartufo</p>
+            <span class="menu-tag">Chef's Choice</span>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-header">
+              <h3>Polpo alla Griglia</h3>
+              <span class="price">€ 16</span>
+            </div>
+            <p>Polpo grigliato su crema di patate allo zafferano e paprika affumicata</p>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-header">
+              <h3>Tagliere Misto</h3>
+              <span class="price">€ 22</span>
+            </div>
+            <p>Selezione di salumi artigianali, formaggi stagionati e confetture fatte in casa</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Primi -->
+      <div class="tab-panel" id="primi">
+        <div class="menu-cards">
+          <div class="menu-card featured" style="--img:url('images/pasta.png')">
+            <div class="menu-card-header">
+              <h3>Spaghetti alle Vongole</h3>
+              <span class="price">€ 22</span>
+            </div>
+            <p>Spaghetti di Gragnano, vongole veraci, prezzemolo e aglio DOP</p>
+            <span class="menu-tag">Chef's Choice</span>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-header">
+              <h3>Risotto ai Funghi Porcini</h3>
+              <span class="price">€ 20</span>
+            </div>
+            <p>Riso Carnaroli, porcini freschi o secchi, burro di malga e Parmigiano 36 mesi</p>
+            <span class="menu-tag">Vegetariano</span>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-header">
+              <h3>Tagliatelle al Ragù</h3>
+              <span class="price">€ 18</span>
+            </div>
+            <p>Pasta all'uovo sfogliata a mano, ragù di carne mista cotto 6 ore</p>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-header">
+              <h3>Pasta e Fagioli</h3>
+              <span class="price">€ 15</span>
+            </div>
+            <p>Ricetta della tradizione, fagioli borlotti, rosmarino e olio piccante</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Secondi -->
+      <div class="tab-panel" id="secondi">
+        <div class="menu-cards">
+          <div class="menu-card featured">
+            <div class="menu-card-header">
+              <h3>Costata di Manzo</h3>
+              <span class="price">€ 38</span>
+            </div>
+            <p>Costata irlandese alla griglia con verdure arrostite e riduzione al vino rosso</p>
+            <span class="menu-tag">Chef's Choice</span>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-header">
+              <h3>Branzino al Cartoccio</h3>
+              <span class="price">€ 28</span>
+            </div>
+            <p>Branzino del Mediterraneo, capperi, olive, pomodorini e erbe aromatiche</p>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-header">
+              <h3>Pollo alla Cacciatora</h3>
+              <span class="price">€ 22</span>
+            </div>
+            <p>Pollo ruspante, pomodoro, rosmarino, olive e peperoni aromatici</p>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-header">
+              <h3>Scaloppine al Limone</h3>
+              <span class="price">€ 24</span>
+            </div>
+            <p>Vitello piemontese, succo di limone biologico, prezzemolo e capperi</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dolci -->
+      <div class="tab-panel" id="dolci">
+        <div class="menu-cards">
+          <div class="menu-card featured">
+            <div class="menu-card-header">
+              <h3>Tiramisù della Casa</h3>
+              <span class="price">€ 10</span>
+            </div>
+            <p>Ricetta originale con savoiardi, mascarpone, caffè espresso e cacao amaro</p>
+            <span class="menu-tag">Chef's Choice</span>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-header">
+              <h3>Panna Cotta</h3>
+              <span class="price">€ 9</span>
+            </div>
+            <p>Panna cotta alla vaniglia Bourbon con coulis di frutti di bosco freschi</p>
+            <span class="menu-tag">Vegetariano</span>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-header">
+              <h3>Cannolo Siciliano</h3>
+              <span class="price">€ 8</span>
+            </div>
+            <p>Cialda croccante, ricotta di pecora, gocce di cioccolato e scorza d'arancio</p>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-header">
+              <h3>Selezione di Gelati</h3>
+              <span class="price">€ 7</span>
+            </div>
+            <p>Tre palline di gelato artigianale del giorno con cialda e salsa calda</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ GALLERY ══════════════════════════════ -->
+  <section class="gallery-section" id="gallery">
+    <p class="section-eyebrow center">I Nostri Piatti</p>
+    <h2 class="section-title center">Galleria</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item tall">
+        <img src="images/hero.png" alt="Sala ristorante" loading="lazy" />
+        <div class="gallery-overlay"><span>La Sala</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/pasta.png" alt="Spaghetti alle vongole" loading="lazy" />
+        <div class="gallery-overlay"><span>Spaghetti alle Vongole</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/dessert.png" alt="Tiramisù" loading="lazy" />
+        <div class="gallery-overlay"><span>Tiramisù della Casa</span></div>
+      </div>
+      <div class="gallery-item wide">
+        <img src="images/steak.png" alt="Costata di manzo" loading="lazy" />
+        <div class="gallery-overlay"><span>Costata di Manzo</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ REVIEWS ════════════════════════════ -->
+  <section class="reviews-section">
+    <div class="container">
+      <p class="section-eyebrow center">Cosa Dicono di Noi</p>
+      <h2 class="section-title center">Recensioni</h2>
+      <div class="reviews-track" id="reviews-track">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>"Una serata indimenticabile. Il tiramisù è il migliore che abbia mai assaggiato! Personale gentilissimo e atmosfera magica."</p>
+          <div class="review-author">
+            <div class="review-avatar">M</div>
+            <div><strong>Marco V.</strong><br /><small>Milano</small></div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>"Gli spaghetti alle vongole erano perfetti, freschi e profumati. Torneremo sicuramente per una cena romantica."</p>
+          <div class="review-author">
+            <div class="review-avatar">S</div>
+            <div><strong>Sofia L.</strong><br /><small>Roma</small></div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>"Ambiente elegante, cucina di altissimo livello e carta dei vini eccellente. Consigliato per cene di lavoro."</p>
+          <div class="review-author">
+            <div class="review-avatar">A</div>
+            <div><strong>Andrea R.</strong><br /><small>Torino</small></div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>"La costata di manzo è semplicemente straordinaria. Cottura perfetta, sapori autentici. Chapeau allo Chef!"</p>
+          <div class="review-author">
+            <div class="review-avatar">F</div>
+            <div><strong>Francesca M.</strong><br /><small>Bergamo</small></div>
+          </div>
+        </div>
+      </div>
+      <div class="review-dots" id="review-dots"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ RESERVATION ══════════════════════════ -->
+  <section class="reservation-section" id="reservation">
+    <div class="reservation-overlay"></div>
+    <div class="container">
+      <div class="reservation-box">
+        <p class="section-eyebrow center">Riserva il Tuo Momento</p>
+        <h2 class="section-title center">Prenota un Tavolo</h2>
+        <p class="reservation-sub center">Compila il modulo e ti contatteremo entro 24 ore per confermare la prenotazione.</p>
+        <form class="reservation-form" id="reservation-form" onsubmit="handleReservation(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="r-name">Nome e Cognome *</label>
+              <input type="text" id="r-name" name="name" placeholder="Mario Rossi" required />
+            </div>
+            <div class="form-group">
+              <label for="r-phone">Telefono *</label>
+              <input type="tel" id="r-phone" name="phone" placeholder="+39 02 1234567" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="r-email">Email</label>
+              <input type="email" id="r-email" name="email" placeholder="mario@email.com" />
+            </div>
+            <div class="form-group">
+              <label for="r-guests">Numero di Persone *</label>
+              <select id="r-guests" name="guests" required>
+                <option value="">Seleziona...</option>
+                <option value="1">1 Persona</option>
+                <option value="2">2 Persone</option>
+                <option value="3">3 Persone</option>
+                <option value="4">4 Persone</option>
+                <option value="5">5 Persone</option>
+                <option value="6">6 Persone</option>
+                <option value="7+">7+ Persone</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="r-date">Data *</label>
+              <input type="date" id="r-date" name="date" required />
+            </div>
+            <div class="form-group">
+              <label for="r-time">Orario *</label>
+              <select id="r-time" name="time" required>
+                <option value="">Seleziona...</option>
+                <option value="12:00">12:00</option>
+                <option value="12:30">12:30</option>
+                <option value="13:00">13:00</option>
+                <option value="13:30">13:30</option>
+                <option value="19:00">19:00</option>
+                <option value="19:30">19:30</option>
+                <option value="20:00">20:00</option>
+                <option value="20:30">20:30</option>
+                <option value="21:00">21:00</option>
+                <option value="21:30">21:30</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group full-width">
+            <label for="r-notes">Note o Richieste Speciali</label>
+            <textarea id="r-notes" name="notes" rows="3" placeholder="Allergie, occasioni speciali, tavolo specifico..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary btn-full" id="submit-btn">Invia Richiesta di Prenotazione</button>
+        </form>
+        <div class="form-success" id="form-success" style="display:none">
+          <div class="success-icon">✓</div>
+          <h3>Richiesta Inviata!</h3>
+          <p>Grazie per aver scelto La Tavola. Ti contatteremo presto per confermare la tua prenotazione.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ CONTACT ══════════════════════════════ -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p class="section-eyebrow">Vieni a Trovarci</p>
+          <h2 class="section-title">Contatti &<br /><em>Orari</em></h2>
+          <div class="contact-items">
+            <div class="contact-item">
+              <div class="contact-icon">📍</div>
+              <div>
+                <strong>Indirizzo</strong>
+                <p>Via Montenapoleone 12,<br />20121 Milano MI</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">📞</div>
+              <div>
+                <strong>Telefono</strong>
+                <p><a href="tel:+390212345678">+39 02 1234 5678</a></p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">✉️</div>
+              <div>
+                <strong>Email</strong>
+                <p><a href="mailto:info@ristorantelatavola.it">info@ristorantelatavola.it</a></p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">🕐</div>
+              <div>
+                <strong>Orari</strong>
+                <p>Lun–Ven: 12:00 – 14:30 | 19:00 – 23:00<br />Sab–Dom: 12:00 – 15:00 | 19:00 – 23:30</p>
+              </div>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="#" class="social-btn" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="TripAdvisor">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="map-container">
+          <div class="map-placeholder">
+            <div class="map-pin">📍</div>
+            <p>Via Montenapoleone 12, Milano</p>
+            <a href="https://maps.google.com/?q=Via+Montenapoleone+12+Milano" target="_blank" class="btn-ghost small">Apri in Maps</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ FOOTER ═══════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">La Tavola</div>
+      <p class="footer-tagline">Cucina Italiana d'Eccellenza — Milano dal 1987</p>
+      <div class="footer-links">
+        <a href="#about">Chi Siamo</a>
+        <a href="#menu">Menù</a>
+        <a href="#reservation">Prenota</a>
+        <a href="#contact">Contatti</a>
+      </div>
+      <p class="footer-copy">© 2025 Ristorante La Tavola. Tutti i diritti riservati. · P.IVA 01234567890</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
