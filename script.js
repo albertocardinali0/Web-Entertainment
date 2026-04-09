@@ -27,6 +27,7 @@ function toggleMenu() {
   const links = document.getElementById('nav-links');
   const hamburger = document.getElementById('hamburger');
   const isOpen = links.classList.toggle('open');
+  hamburger.classList.toggle('open');
   hamburger.setAttribute('aria-expanded', isOpen);
   document.body.style.overflow = isOpen ? 'hidden' : '';
 }
@@ -35,6 +36,7 @@ function toggleMenu() {
 document.querySelectorAll('.nav-links a').forEach(link => {
   link.addEventListener('click', () => {
     document.getElementById('nav-links').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
     document.body.style.overflow = '';
   });
 });
